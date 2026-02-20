@@ -8,10 +8,10 @@ type BioCardProps = {
 export default function BioCard({ style }: BioCardProps) {
   return (
     <div
-      className="bg-white rounded-2xl px-9 py-8 flex items-center transition-shadow duration-300 hover:shadow-2xl"
+      className="bg-white rounded-2xl px-9 py-8 flex items-center cursor-pointer group"
       style={style}
     >
-      <p className="text-md font-regular leading-relaxed text-neutral-500 whitespace-normal">{BIO_TEXT}</p>
+      <p className="text-md font-regular leading-relaxed text-neutral-500 whitespace-normal group-hover:text-black transition-colors duration-300">{BIO_TEXT}</p>
     </div>
   );
 }
