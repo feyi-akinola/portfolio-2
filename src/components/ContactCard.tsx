@@ -5,7 +5,7 @@ type ContactCardProps = {
 export default function ContactCard({ style }: ContactCardProps) {
   return (
     <div
-      className="bg-stone-200 rounded-2xl px-9 py-8 flex flex-col justify-between cursor-pointer group"
+      className="w-full bg-stone-200 rounded-2xl px-9 py-8 flex flex-col justify-between cursor-pointer group"
       style={style}
     >
       <div className="flex justify-between items-start text-xl font-medium text-text">
@@ -18,7 +18,7 @@ export default function ContactCard({ style }: ContactCardProps) {
         </a>
       </div>
       <div
-        className="mt-auto text-4xl font-regular text-text"
+        className="mt-12 lg:mt-auto text-4xl font-regular text-text"
       >
         Contact me
       </div>

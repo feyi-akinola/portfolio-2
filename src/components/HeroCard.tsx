@@ -74,11 +74,11 @@ export default function HeroCard({ style }: HeroCardProps) {
       className="hero-card bg-white rounded-2xl px-8 py-6 flex flex-col justify-between relative overflow-hidden group"
       style={style}
     >
-      <div className="absolute top-10 right-12 pointer-events-none select-none">
+      <div className="hidden md:block absolute top-10 right-12 pointer-events-none select-none">
         <StarIcon />
       </div>
       <div className="flex-1" />
-      <h1 className="text-5xl font-semibold leading-tight text-text">
+      <h1 className="text-3xl sm:text-5xl xl:text-6xl font-semibold leading-tight text-text">
         Frontend &
         <br />
         Mobile{" "}

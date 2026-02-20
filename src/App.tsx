@@ -9,8 +9,6 @@ import ContactCard from "./components/ContactCard";
 type HoverCard = "hero" | "photo" | "projects" | "bio" | "contact" | null;
 
 function getGridColumns(hovered: HoverCard) {
-  // 4 cols: [hero-main | hero-secondary | photo/contact | projects]
-  // hero spans cols 1-2, bio spans col 1 only (~80% of hero width)
   switch (hovered) {
     case "hero":     return "1fr 0.15fr 0.6fr 0.75fr";
     case "photo":    return "0.9fr 0.15fr 0.7fr 0.75fr";
@@ -28,8 +26,36 @@ export default function Portfolio() {
     <div className="bg-black min-h-screen p-4 flex flex-col gap-4">
       <NavBar />
 
+      {/* ── Mobile: single column stack ── */}
+      <div className="flex flex-col gap-3 flex-1 md:hidden">
+        <HeroCard />
+        <PhotoCard style={{ backgroundImage: "" }} />
+        <BioCard />
+        <ContactCard />
+        <ProjectsCard />
+      </div>
+
+      {/* ── Tablet: 2-column grid, projects pinned to bottom row spanning full width ── */}
+      <div className="hidden md:grid xl:hidden gap-3 flex-1"
+        style={{
+          gridTemplateColumns: "1fr 1fr",
+          gridTemplateRows: "auto auto auto",
+        }}
+      >
+        {/* Row 1 */}
+        <HeroCard style={{ gridColumn: "1 / 3", gridRow: 1 }} />
+        {/* Row 2 */}
+        <PhotoCard style={{ gridColumn: 1, gridRow: 2, backgroundImage: "" }} />
+        <BioCard style={{ gridColumn: 2, gridRow: 2 }} />
+        {/* Row 3 */}
+        <ContactCard style={{ gridColumn: "1 / 3", gridRow: 3 }} />
+        {/* Projects at bottom, spanning full width */}
+        <ProjectsCard style={{ gridColumn: "1 / 3", gridRow: 4 }} />
+      </div>
+
+      {/* ── Desktop: original dynamic hover grid ── */}
       <div
-        className="grid gap-3 flex-1"
+        className="hidden xl:grid gap-3 flex-1"
         onMouseLeave={() => setHovered(null)}
         style={{
           gridTemplateColumns: getGridColumns(hovered),
@@ -37,30 +63,11 @@ export default function Portfolio() {
           transition: "grid-template-columns 260ms cubic-bezier(.2,.8,.2,1)",
         }}
       >
-        {/* Hero spans cols 1-2 */}
-        <HeroCard
-          style={{ gridColumn: "1 / 3", gridRow: 1 }}
-        />
-
-        {/* Photo sits in col 3, row 1 */}
-        <PhotoCard
-          style={{ gridColumn: 3, gridRow: 1, backgroundImage: "" }}
-        />
-
-        {/* Projects spans both rows in col 4 */}
-        <ProjectsCard
-          style={{ gridColumn: 4, gridRow: "1 / 3" }}
-        />
-
-        {/* Bio spans col 1 only — naturally ~80% of hero's width */}
-        <BioCard
-          style={{ gridColumn: 1, gridRow: 2 }}
-        />
-
-        {/* Contact spans cols 2-3 — fills the remaining bottom space */}
-        <ContactCard
-          style={{ gridColumn: "2 / 4", gridRow: 2 }}
-        />
+        <HeroCard style={{ gridColumn: "1 / 3", gridRow: 1 }} />
+        <PhotoCard style={{ gridColumn: 3, gridRow: 1, backgroundImage: "" }} />
+        <ProjectsCard style={{ gridColumn: 4, gridRow: "1 / 3" }} />
+        <BioCard style={{ gridColumn: 1, gridRow: 2 }} />
+        <ContactCard style={{ gridColumn: "2 / 4", gridRow: 2 }} />
       </div>
 
       <p className="text-center text-white/25 text-xs py-3 tracking-wide">
