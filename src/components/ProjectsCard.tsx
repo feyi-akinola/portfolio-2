@@ -42,21 +42,15 @@ const SOCIALS = [
 ] as const;
 
 type ProjectsCardProps = {
-  onMouseEnter: () => void;
-  activeProject: string;
-  setActiveProject: (p: string) => void;
+  style?: React.CSSProperties;
 };
 
-export default function ProjectsCard({
-  onMouseEnter,
-  activeProject,
-  setActiveProject,
-}: ProjectsCardProps) {
+
+export default function ProjectsCard({style} : ProjectsCardProps) {
   return (
     <div
-      onMouseEnter={onMouseEnter}
       className="bg-white rounded-2xl p-7 flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-2xl"
-      style={{ gridRow: "span 2" }}
+      style={{ gridRow: "span 2", ...style }}
     >
       <div className="flex justify-between items-center mb-5">
         <span className="text-sm font-medium text-text">Projects</span>
@@ -79,14 +73,8 @@ export default function ProjectsCard({
         {PROJECTS.map((p, i, arr) => (
           <div
             key={p}
-            onClick={() => setActiveProject(p)}
-            className={[
-              "py-3.5 text-xs font-bold tracking-widest uppercase cursor-pointer transition-colors duration-200",
-              activeProject === p
-                ? "border-b-2 border-text text-text"
-                : "text-text hover:text-neutral-500",
-              i !== arr.length - 1 && activeProject !== p ? "border-b border-neutral-100" : "",
-            ].join(" ")}
+            className=
+              "py-3.5 text-xs font-bold tracking-widest uppercase cursor-pointer text-text"
           >
             {p}
           </div>
