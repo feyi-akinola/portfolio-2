@@ -13,10 +13,27 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #000000;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+
+@layer utilities {
+  .button-text_ {
+    @apply relative transition-all duration-300 cursor-pointer;
+  }
+  .button-text_:hover {
+    @apply tracking-tighter
+  }
+  .button-text_::after {
+    @apply absolute h-1 w-full bg-text -bottom-1 left-0 content-[''] scale-x-0
+      origin-bottom-right transition-transform duration-300;
+  }
+  .button-text_:hover::after {
+    @apply scale-x-100 origin-bottom-left;
+  }
 }

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 const WORDS = ["Developer,", "Engineer,"];
-const TYPE_SPEED = 85;
-const DELETE_SPEED = 65;
+const TYPE_SPEED = 70;
+const DELETE_SPEED = 45;
 const PAUSE_AFTER_TYPE = 2200;
 const PAUSE_AFTER_DELETE = 400;
 

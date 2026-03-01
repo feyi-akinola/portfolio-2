@@ -34,11 +34,23 @@ const InteriorSVG = () => (
   </svg>
 );
 
-const PROJECTS = ["APP WAREHOUSE", "DESIGN STUDIO", "MISCELLANOUS"] as const;
+type ProjectType = "Application" | "Design";
+
+type Project = {
+  name: string;
+  type: ProjectType;
+};
+
+const PROJECTS: Project[] = [
+  { name: "Mantar News", type: "Application" },
+  { name: "Crime Visualizer", type: "Application" },
+  { name: "Sela App", type: "Design" },
+  { name: "Mocha Social", type: "Design" },
+] as const;
 const SOCIALS = [
-  { href: "mailto:hello@feyisayo.com", icon: <GmailIcon />, label: "Email", color: "bg-red-500" },
-  { href: "https://github.com", icon: <GithubIcon />, label: "GitHub", color: "bg-neutral-900" },
-  { href: "https://linkedin.com", icon: <LinkedinIcon />, label: "LinkedIn", color: "bg-blue-600" },
+  { href: "mailto:feyi.akinola.3005@gmail.com", icon: <GmailIcon />, label: "Email", color: "bg-black" },
+  { href: "https://github.com/feyi-akinola/", icon: <GithubIcon />, label: "GitHub", color: "bg-black" },
+  { href: "https://linkedin.com/in/feyisayo-akinola/", icon: <LinkedinIcon />, label: "LinkedIn", color: "bg-black" },
 ] as const;
 
 type ProjectsCardProps = {
@@ -48,56 +60,62 @@ type ProjectsCardProps = {
 
 export default function ProjectsCard({style} : ProjectsCardProps) {
   return (
-    <div
-      className="bg-white rounded-2xl p-7 flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-2xl"
-      style={{ gridRow: "span 2", ...style }}
-    >
-      <div className="flex justify-between items-center mb-5">
-        <span className="text-sm font-medium text-text">Projects</span>
-        <a
-          href="#"
-          className="text-lg text-text no-underline inline-block transition-transform duration-200 hover:translate-x-0.5 hover:-translate-y-0.5"
-        >
-          ↗
-        </a>
-      </div>
-
+    <div className="flex flex-col h-full" style={{ gridRow: "span 2", ...style }}>
       <div
-        className="w-full h-48 rounded-xl mb-4 overflow-hidden flex items-center justify-center"
-        style={{ background: "linear-gradient(135deg, #d6d3ce 0%, #b8b5b0 100%)" }}
+        className="flex-1 bg-white rounded-2xl p-7 flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-2xl"
       >
-        <InteriorSVG />
-      </div>
-
-      <div className="flex flex-col">
-        {PROJECTS.map((p, i, arr) => (
-          <div
-            key={p}
-            className=
-              "py-3.5 text-xs font-bold tracking-widest uppercase cursor-pointer text-text"
+        <div className="flex justify-between items-center mb-5">
+          <span className="text-xl font-medium text-text">Projects</span>
+          <a
+            href="#"
+            className="text-3xl text-text no-underline inline-block transition-transform duration-200 hover:translate-x-0.5 hover:-translate-y-0.5"
           >
-            {p}
-          </div>
-        ))}
-      </div>
+            ↗
+          </a>
+        </div>
 
-      <div className="mt-auto pt-4">
-        <div className="bg-stone-100 rounded-2xl px-6 py-5 flex items-center justify-around gap-2">
-          {SOCIALS.map(({ href, icon, label, color }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 text-xs font-semibold text-text no-underline transition-opacity duration-200 hover:opacity-60"
+        <div
+          className="w-full h-full min-h-50 rounded-xl mb-4 overflow-hidden flex items-center justify-center"
+          style={{ background: "linear-gradient(135deg, #d6d3ce 0%, #b8b5b0 100%)" }}
+        >
+          <InteriorSVG />
+        </div>
+
+        <div className="mt-12 flex flex-col">
+          {PROJECTS.map((p, i, arr) => (
+            <div
+              key={p.name}
+              className="mb-8 flex justify-center align-center py-3.5 text-xl lg:text-2xl font-medium uppercase cursor-pointer text-text"
             >
-              <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${color}`}>
-                {icon}
+              <div className="flex relative">
+                <p className="button-text_ text-[0.85em]">{p.name}</p>
+                {
+                  p.type === "Design" &&
+                    <span className="absolute -top-3 -right-13 flex items-center text-[0.65rem] px-2 py-1 bg-text rounded-full text-white ">
+                      {p.type}
+                    </span>
+                }
               </div>
-              {label}
-            </a>
+            </div>
           ))}
         </div>
+      </div>
+
+      <div className="mt-3 pt-4 bg-stone-100 rounded-2xl px-6 py-5 flex items-center justify-around gap-2">
+        {SOCIALS.map(({ href, icon, label, color }) => (
+          <a
+            key={label}
+            href={href}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2 text-xs font-semibold text-text no-underline transition-opacity duration-200 hover:opacity-60"
+          >
+            <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${color}`}>
+              {icon}
+            </div>
+            {label}
+          </a>
+        ))}
       </div>
     </div>
   );

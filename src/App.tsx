@@ -23,7 +23,7 @@ export default function Portfolio() {
   const [hovered, setHovered] = useState<HoverCard>(null);
 
   return (
-    <div className="bg-black min-h-screen p-4 flex flex-col gap-4">
+    <div className="bg-black min-h-screen max-w-[1800px] mx-auto p-4 flex flex-col gap-4">
       <NavBar />
 
       {/* ── Mobile: single column stack ── */}
@@ -55,7 +55,7 @@ export default function Portfolio() {
 
       {/* ── Desktop: original dynamic hover grid ── */}
       <div
-        className="hidden xl:grid gap-3 flex-1"
+        className="hidden xl:grid gap-4 flex-1"
         onMouseLeave={() => setHovered(null)}
         style={{
           gridTemplateColumns: getGridColumns(hovered),
@@ -65,9 +65,9 @@ export default function Portfolio() {
       >
         <HeroCard style={{ gridColumn: "1 / 3", gridRow: 1 }} />
         <PhotoCard style={{ gridColumn: 3, gridRow: 1, backgroundImage: "" }} />
-        <ProjectsCard style={{ gridColumn: 4, gridRow: "1 / 3" }} />
         <BioCard style={{ gridColumn: 1, gridRow: 2 }} />
         <ContactCard style={{ gridColumn: "2 / 4", gridRow: 2 }} />
+        <ProjectsCard style={{ gridColumn: 4, gridRow: "1 / 3" }} />
       </div>
 
       <p className="text-center text-white/25 text-xs py-3 tracking-wide">

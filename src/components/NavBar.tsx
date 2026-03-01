@@ -7,12 +7,12 @@ export default function NavBar() {
         <em className="font-light italic">FEYISAYO</em>{" "}
         <span className="font-bold">AKINOLA</span>
       </div>
-      <div className="flex gap-10">
+      <div className="flex gap-14">
         {NAV_LINKS.map((link) => (
           <a
             key={link}
             href="#"
-            className="text-white text-sm font-medium tracking-widest opacity-85 hover:opacity-100 transition-opacity no-underline"
+            className="text-white font-medium tracking-widest opacity-85 hover:opacity-100 transition-opacity no-underline"
           >
             {link}
           </a>
