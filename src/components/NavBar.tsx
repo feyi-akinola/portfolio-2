@@ -12,7 +12,7 @@ export default function NavBar() {
           <a
             key={link}
             href="#"
-            className="text-white font-medium tracking-widest opacity-85 hover:opacity-100 transition-opacity no-underline"
+            className="text-white font-medium tracking-widest opacity-75 button-text-light_ no-underline"
           >
             {link}
           </a>

@@ -23,7 +23,7 @@ export default function Portfolio() {
   const [hovered, setHovered] = useState<HoverCard>(null);
 
   return (
-    <div className="bg-black min-h-screen max-w-[1800px] mx-auto p-4 flex flex-col gap-4">
+    <div className="bg-black h-screen max-w-[1800px] max-h-[1280px] mx-auto p-4 flex flex-col gap-4">
       <NavBar />
 
       {/* ── Mobile: single column stack ── */}
@@ -59,7 +59,7 @@ export default function Portfolio() {
         onMouseLeave={() => setHovered(null)}
         style={{
           gridTemplateColumns: getGridColumns(hovered),
-          gridTemplateRows: "3fr 2fr",
+          gridTemplateRows: "5fr 3fr",
           transition: "grid-template-columns 260ms cubic-bezier(.2,.8,.2,1)",
         }}
       >

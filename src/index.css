@@ -36,4 +36,18 @@
   .button-text_:hover::after {
     @apply scale-x-100 origin-bottom-left;
   }
+  
+  .button-text-light_ {
+    @apply relative transition-all duration-300 cursor-pointer;
+  }
+  .button-text-light_:hover {
+    @apply opacity-100;
+  }
+  .button-text-light_::after {
+    @apply absolute h-1 w-full bg-white -bottom-1 left-0 content-[''] scale-x-0
+      origin-bottom-right transition-transform duration-300;
+  }
+  .button-text-light_:hover::after {
+    @apply scale-x-100 origin-bottom-left;
+  }
 }
