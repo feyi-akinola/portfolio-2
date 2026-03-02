@@ -82,7 +82,7 @@ export default function ProjectsCard({style} : ProjectsCardProps) {
         </div>
 
         <div className="mt-12 flex flex-col">
-          {PROJECTS.map((p, i, arr) => (
+          {PROJECTS.map((p, _, __) => (
             <div
               key={p.name}
               className="mb-8 flex justify-center align-center py-3.5 text-xl lg:text-2xl font-medium uppercase cursor-pointer text-text"
