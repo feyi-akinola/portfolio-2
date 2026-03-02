@@ -1,75 +1,71 @@
-# React + TypeScript + Vite
+# Portfolio – Feyisayo Akinola
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Modern, responsive personal portfolio built with **React**, **TypeScript**, **Vite**, and **Tailwind CSS**.
 
-Currently, two official plugins are available:
+Designed to experiment with a dynamic bento-grid layout while demonstrating clean component architecture and modern frontend tooling.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Live Demo
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+🔗 https://feyi-theta.vercel.app
 
-Note: This will impact Vite dev & build performances.
+---
 
-## Expanding the ESLint configuration
+## Preview
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Profile
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+<img 
+  src="./public/images/me.png" 
+  alt="Feyisayo"
+  width="200"
+  style="border-radius: 16px;"
+/>
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Application Screenshot
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+<img 
+  src="./public/images/screenshot.png" 
+  alt="Portfolio Screenshot"
+  style="border-radius: 16px;"
+/>
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Overview
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Layout
+- Card-based bento grid
+- Fully responsive (mobile → desktop)
+- Hover-driven resizing interactions on larger screens
+
+### Sections
+- **Hero** – headline + quick intro  
+- **Photo** – personal image  
+- **Bio** – short professional summary  
+- **Projects** – highlighted work  
+- **Contact** – ways to reach me  
+
+---
+
+## Tech Stack
+
+- **React** ^19
+- **TypeScript** ^5
+- **Vite** ^7
+- **Tailwind CSS** ^4
+- ESLint + TypeScript + React Hooks rules
+- React Compiler (via `babel-plugin-react-compiler`)
+
+---
+
+## Getting Started
+
+### Prerequisites
+- Node.js v18+
+- npm (or compatible package manager)
+
+### Install
+```bash
+npm install
