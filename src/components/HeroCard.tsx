@@ -71,7 +71,7 @@ export default function HeroCard({ style }: HeroCardProps) {
 
   return (
     <div
-      className="hero-card bg-white rounded-2xl px-8 py-6 flex flex-col justify-between relative overflow-hidden group"
+      className="hero-card w-full h-full bg-white rounded-2xl px-8 py-6 flex flex-col justify-between relative overflow-hidden group"
       style={style}
     >
       <div className="hidden md:block absolute top-10 right-12 pointer-events-none select-none">

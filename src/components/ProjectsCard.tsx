@@ -57,10 +57,9 @@ type ProjectsCardProps = {
   style?: React.CSSProperties;
 };
 
-
 export default function ProjectsCard({style} : ProjectsCardProps) {
   return (
-    <div className="flex flex-col h-full" style={{ gridRow: "span 2", ...style }}>
+    <div className="flex flex-col h-full w-full" style={{ gridRow: "span 2", ...style }}>
       <div
         className="flex-1 bg-white rounded-2xl p-7 flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-2xl"
       >

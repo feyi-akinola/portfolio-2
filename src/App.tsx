@@ -5,6 +5,7 @@ import PhotoCard from "./components/PhotoCard";
 import ProjectsCard from "./components/ProjectsCard";
 import BioCard from "./components/BioCard";
 import ContactCard from "./components/ContactCard";
+import TiltCard from "./components/TiltCard";
 
 type HoverCard = "hero" | "photo" | "projects" | "bio" | "contact" | null;
 
@@ -63,11 +64,39 @@ export default function Portfolio() {
           transition: "grid-template-columns 260ms cubic-bezier(.2,.8,.2,1)",
         }}
       >
-        <HeroCard style={{ gridColumn: "1 / 3", gridRow: 1 }} />
-        <PhotoCard style={{ gridColumn: 3, gridRow: 1, backgroundImage: "" }} />
-        <BioCard style={{ gridColumn: 1, gridRow: 2 }} />
-        <ContactCard style={{ gridColumn: "2 / 4", gridRow: 2 }} />
-        <ProjectsCard style={{ gridColumn: 4, gridRow: "1 / 3" }} />
+        <TiltCard
+          style={{ gridColumn: "1 / 3", gridRow: 1 }}
+        >
+          <HeroCard />
+        </TiltCard>
+
+        <TiltCard
+          style={{ gridColumn: 3, gridRow: 1, backgroundImage: "" }}
+        >
+          <PhotoCard  />
+        </TiltCard>
+
+
+        <TiltCard
+          style={{ gridColumn: 1, gridRow: 2 }}
+        >
+          <BioCard />
+        </TiltCard>
+
+
+        <TiltCard
+          style={{ gridColumn: "2 / 4", gridRow: 2 }}
+        >
+          <ContactCard />
+        </TiltCard>
+
+
+        <TiltCard
+          style={{ gridColumn: 4, gridRow: "1 / 3" }}
+          tiltLevel="medium"
+        >
+          <ProjectsCard />
+        </TiltCard>
       </div>
 
       <p className="text-center text-white/25 text-xs py-3 tracking-wide">

@@ -5,7 +5,7 @@ type PhotoCardProps = {
 export default function PhotoCard({ style }: PhotoCardProps) {
   return (
     <div
-      className="bg-neutral-500 rounded-2xl hover:shadow-2xl"
+      className="bg-neutral-500 rounded-2xl cursor-pointer h-full w-full"
       style={style}
     >
       <img
