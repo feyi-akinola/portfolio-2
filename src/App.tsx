@@ -24,7 +24,7 @@ export default function Portfolio() {
   const [hovered, setHovered] = useState<HoverCard>(null);
 
   return (
-    <div className="bg-black h-screen max-w-[1800px] max-h-[1280px] mx-auto p-4 flex flex-col gap-4">
+    <div className="bg-black h-screen max-w-[1400px] max-h-[840px] mx-auto p-4 flex flex-col gap-4">
       <NavBar />
 
       {/* ── Mobile: single column stack ── */}
@@ -37,26 +37,39 @@ export default function Portfolio() {
       </div>
 
       {/* ── Tablet: 2-column grid, projects pinned to bottom row spanning full width ── */}
-      <div className="hidden md:grid xl:hidden gap-3 flex-1"
+      <div className="hidden sm:grid lg:hidden gap-2 flex-1"
         style={{
           gridTemplateColumns: "1fr 1fr",
           gridTemplateRows: "auto auto auto",
         }}
       >
         {/* Row 1 */}
-        <HeroCard style={{ gridColumn: "1 / 3", gridRow: 1 }} />
+        <TiltCard style={{ gridColumn: "1 / 2", gridRow: 1 }}>
+          <HeroCard />
+        </TiltCard>
+        
+        <TiltCard style={{ gridColumn: 1, gridRow: 2, backgroundImage: "" }}>
+          <BioCard />
+        </TiltCard>
+
         {/* Row 2 */}
-        <PhotoCard style={{ gridColumn: 1, gridRow: 2, backgroundImage: "" }} />
-        <BioCard style={{ gridColumn: 2, gridRow: 2 }} />
-        {/* Row 3 */}
-        <ContactCard style={{ gridColumn: "1 / 3", gridRow: 3 }} />
+        <TiltCard style={{ gridColumn: "2 / 3", gridRow: 1 }}>
+          <ContactCard />
+        </TiltCard>
+
+        <TiltCard style={{ gridColumn: 2, gridRow: 2, backgroundImage: "" }}>
+          <PhotoCard />
+        </TiltCard>
+
         {/* Projects at bottom, spanning full width */}
-        <ProjectsCard style={{ gridColumn: "1 / 3", gridRow: 4 }} />
+        <TiltCard style={{ gridColumn: "1 / 3", gridRow: 4 }} tiltLevel="medium">
+          <ProjectsCard />
+        </TiltCard>
       </div>
 
       {/* ── Desktop: original dynamic hover grid ── */}
       <div
-        className="hidden xl:grid gap-4 flex-1"
+        className="hidden lg:grid gap-2  flex-1"
         onMouseLeave={() => setHovered(null)}
         style={{
           gridTemplateColumns: getGridColumns(hovered),
@@ -64,32 +77,21 @@ export default function Portfolio() {
           transition: "grid-template-columns 260ms cubic-bezier(.2,.8,.2,1)",
         }}
       >
-        <TiltCard
-          style={{ gridColumn: "1 / 3", gridRow: 1 }}
-        >
+        <TiltCard style={{ gridColumn: "1 / 3", gridRow: 1 }}>
           <HeroCard />
         </TiltCard>
 
-        <TiltCard
-          style={{ gridColumn: 3, gridRow: 1, backgroundImage: "" }}
-        >
+        <TiltCard style={{ gridColumn: 3, gridRow: 1, backgroundImage: "" }}>
           <PhotoCard  />
         </TiltCard>
 
-
-        <TiltCard
-          style={{ gridColumn: 1, gridRow: 2 }}
-        >
+        <TiltCard style={{ gridColumn: 1, gridRow: 2 }}>
           <BioCard />
         </TiltCard>
 
-
-        <TiltCard
-          style={{ gridColumn: "2 / 4", gridRow: 2 }}
-        >
+        <TiltCard style={{ gridColumn: "2 / 4", gridRow: 2 }}>
           <ContactCard />
         </TiltCard>
-
 
         <TiltCard
           style={{ gridColumn: 4, gridRow: "1 / 3" }}
@@ -99,7 +101,7 @@ export default function Portfolio() {
         </TiltCard>
       </div>
 
-      <p className="text-center text-white/25 text-xs py-3 tracking-wide">
+      <p className="text-center text-white/25 text-xs py-1 tracking-wide">
         Made by Feyisayo with {"<3"}
       </p>
     </div>

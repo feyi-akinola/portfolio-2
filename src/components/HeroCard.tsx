@@ -78,7 +78,7 @@ export default function HeroCard({ style }: HeroCardProps) {
         <StarIcon />
       </div>
       <div className="flex-1" />
-      <h1 className="text-3xl sm:text-5xl xl:text-6xl font-semibold leading-tight text-text">
+      <h1 className="text-2xl sm:text-3xl xl:text-5xl font-semibold leading-tight text-text">
         Frontend &
         <br />
         Mobile{" "}
@@ -92,7 +92,7 @@ export default function HeroCard({ style }: HeroCardProps) {
         <br />
         and AI Enthusiast
       </h1>
-      <p className="mt-4 text-text text-lg translate-x-0 group-hover:translate-x-2 transition-transform duration-300">
+      <p className="mt-4 text-text text-base translate-x-0 group-hover:translate-x-2 transition-transform duration-300">
         Next.js, React & Flutter
       </p>
 
