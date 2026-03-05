@@ -29,7 +29,7 @@ export default function Portfolio() {
         <NavBar />
 
         {/* ── Mobile: single column stack ── */}
-        <div className="flex flex-col gap-3 flex-1 md:hidden">
+        <div className="flex flex-col gap-3 flex-1 sm:hidden">
           <HeroCard />
           <PhotoCard style={{ backgroundImage: "" }} />
           <BioCard />
@@ -38,7 +38,8 @@ export default function Portfolio() {
         </div>
 
         {/* ── Tablet: 2-column grid, projects pinned to bottom row spanning full width ── */}
-        <div className="hidden sm:grid lg:hidden gap-2 flex-1"
+        <div
+          className="hidden sm:grid lg:hidden gap-2 flex-1"
           style={{
             gridTemplateColumns: "1fr 1fr",
             gridTemplateRows: "auto auto auto",

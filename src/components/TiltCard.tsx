@@ -11,6 +11,7 @@ export default function TiltCard(
     rotateY(0deg)
     scale3d(1, 1, 1)
   `);
+  const [isHovered, setIsHovered] = useState(false);
 
   const ref: any = useRef(undefined);
 
@@ -45,13 +46,19 @@ export default function TiltCard(
   return (
     <div
       style={{
+        position: "relative",
+        zIndex: isHovered ? 50 : 1,
         transform: transformStyle,
         transition: "transform 1000ms cubic-bezier(0.22, 1, 0.36, 1)",
         ...style,
       }}
       ref={ref}
       onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      onMouseLeave={(_) => {
+        handleMouseLeave();
+        setIsHovered(false);
+      }}
+      onMouseEnter={() => setIsHovered(true)}
     >
       {children}
     </div>
