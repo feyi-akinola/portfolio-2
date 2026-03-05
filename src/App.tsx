@@ -24,86 +24,88 @@ export default function Portfolio() {
   const [hovered, setHovered] = useState<HoverCard>(null);
 
   return (
-    <div className="bg-black h-screen max-w-[1400px] max-h-[840px] mx-auto p-4 flex flex-col gap-4">
-      <NavBar />
+    <div className="bg-black min-h-screen flex items-center">
+      <div className="max-w-[1400px] max-h-[840px] mx-auto p-4 flex flex-col gap-4">
+        <NavBar />
 
-      {/* ── Mobile: single column stack ── */}
-      <div className="flex flex-col gap-3 flex-1 md:hidden">
-        <HeroCard />
-        <PhotoCard style={{ backgroundImage: "" }} />
-        <BioCard />
-        <ContactCard />
-        <ProjectsCard />
-      </div>
-
-      {/* ── Tablet: 2-column grid, projects pinned to bottom row spanning full width ── */}
-      <div className="hidden sm:grid lg:hidden gap-2 flex-1"
-        style={{
-          gridTemplateColumns: "1fr 1fr",
-          gridTemplateRows: "auto auto auto",
-        }}
-      >
-        {/* Row 1 */}
-        <TiltCard style={{ gridColumn: "1 / 2", gridRow: 1 }}>
+        {/* ── Mobile: single column stack ── */}
+        <div className="flex flex-col gap-3 flex-1 md:hidden">
           <HeroCard />
-        </TiltCard>
-        
-        <TiltCard style={{ gridColumn: 1, gridRow: 2, backgroundImage: "" }}>
+          <PhotoCard style={{ backgroundImage: "" }} />
           <BioCard />
-        </TiltCard>
-
-        {/* Row 2 */}
-        <TiltCard style={{ gridColumn: "2 / 3", gridRow: 1 }}>
           <ContactCard />
-        </TiltCard>
-
-        <TiltCard style={{ gridColumn: 2, gridRow: 2, backgroundImage: "" }}>
-          <PhotoCard />
-        </TiltCard>
-
-        {/* Projects at bottom, spanning full width */}
-        <TiltCard style={{ gridColumn: "1 / 3", gridRow: 4 }} tiltLevel="medium">
           <ProjectsCard />
-        </TiltCard>
-      </div>
+        </div>
 
-      {/* ── Desktop: original dynamic hover grid ── */}
-      <div
-        className="hidden lg:grid gap-2  flex-1"
-        onMouseLeave={() => setHovered(null)}
-        style={{
-          gridTemplateColumns: getGridColumns(hovered),
-          gridTemplateRows: "5fr 3fr",
-          transition: "grid-template-columns 260ms cubic-bezier(.2,.8,.2,1)",
-        }}
-      >
-        <TiltCard style={{ gridColumn: "1 / 3", gridRow: 1 }}>
-          <HeroCard />
-        </TiltCard>
-
-        <TiltCard style={{ gridColumn: 3, gridRow: 1, backgroundImage: "" }}>
-          <PhotoCard  />
-        </TiltCard>
-
-        <TiltCard style={{ gridColumn: 1, gridRow: 2 }}>
-          <BioCard />
-        </TiltCard>
-
-        <TiltCard style={{ gridColumn: "2 / 4", gridRow: 2 }}>
-          <ContactCard />
-        </TiltCard>
-
-        <TiltCard
-          style={{ gridColumn: 4, gridRow: "1 / 3" }}
-          tiltLevel="medium"
+        {/* ── Tablet: 2-column grid, projects pinned to bottom row spanning full width ── */}
+        <div className="hidden sm:grid lg:hidden gap-2 flex-1"
+          style={{
+            gridTemplateColumns: "1fr 1fr",
+            gridTemplateRows: "auto auto auto",
+          }}
         >
-          <ProjectsCard />
-        </TiltCard>
-      </div>
+          {/* Row 1 */}
+          <TiltCard style={{ gridColumn: "1 / 2", gridRow: 1 }}>
+            <HeroCard />
+          </TiltCard>
+          
+          <TiltCard style={{ gridColumn: 1, gridRow: 2, backgroundImage: "" }}>
+            <BioCard />
+          </TiltCard>
 
-      <p className="text-center text-white/25 text-xs py-1 tracking-wide">
-        Made by Feyisayo with {"<3"}
-      </p>
+          {/* Row 2 */}
+          <TiltCard style={{ gridColumn: "2 / 3", gridRow: 1 }}>
+            <ContactCard />
+          </TiltCard>
+
+          <TiltCard style={{ gridColumn: 2, gridRow: 2, backgroundImage: "" }}>
+            <PhotoCard />
+          </TiltCard>
+
+          {/* Projects at bottom, spanning full width */}
+          <TiltCard style={{ gridColumn: "1 / 3", gridRow: 4 }} tiltLevel="medium">
+            <ProjectsCard />
+          </TiltCard>
+        </div>
+
+        {/* ── Desktop: original dynamic hover grid ── */}
+        <div
+          className="hidden lg:grid gap-2  flex-1"
+          onMouseLeave={() => setHovered(null)}
+          style={{
+            gridTemplateColumns: getGridColumns(hovered),
+            gridTemplateRows: "5fr 3fr",
+            transition: "grid-template-columns 260ms cubic-bezier(.2,.8,.2,1)",
+          }}
+        >
+          <TiltCard style={{ gridColumn: "1 / 3", gridRow: 1 }}>
+            <HeroCard />
+          </TiltCard>
+
+          <TiltCard style={{ gridColumn: 3, gridRow: 1, backgroundImage: "" }}>
+            <PhotoCard  />
+          </TiltCard>
+
+          <TiltCard style={{ gridColumn: 1, gridRow: 2 }}>
+            <BioCard />
+          </TiltCard>
+
+          <TiltCard style={{ gridColumn: "2 / 4", gridRow: 2 }}>
+            <ContactCard />
+          </TiltCard>
+
+          <TiltCard
+            style={{ gridColumn: 4, gridRow: "1 / 3" }}
+            tiltLevel="medium"
+          >
+            <ProjectsCard />
+          </TiltCard>
+        </div>
+
+        <p className="text-center text-white/25 text-xs py-1 tracking-wide">
+          Made by Feyisayo with {"<3"}
+        </p>
+      </div>
     </div>
   );
 }
