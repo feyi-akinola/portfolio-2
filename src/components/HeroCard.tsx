@@ -66,6 +66,26 @@ type HeroCardProps = {
   style?: React.CSSProperties;
 };
 
+type Skill = { name: string; icon: string };
+
+const skills: Skill[] = [
+  { name: "React", icon: "/icons/reactjs.svg"},
+  { name: "Next.js", icon: "/icons/nextjs.svg"},
+  { name: "TypeScript", icon: "/icons/typescript.svg"},
+  { name: "TailwindCSS", icon: "/icons/tailwindcss.svg"},
+  { name: "Flutter", icon: "/icons/flutter.svg"},
+  { name: "Vite", icon: "/icons/vitejs.svg"},
+  { name: "Python", icon: "/icons/python.svg"},
+  { name: "Figma", icon: "/icons/figma.svg"}
+];
+
+const SkillItem = ({ item }: { item: Skill }) => (
+  <div className="flex items-center gap-1.5 text-text whitespace-nowrap">
+    <img src={item.icon} alt="" className="w-8 h-8" />
+    <p className="text-sm font-semibold">{item.name}</p>
+  </div>
+);
+
 export default function HeroCard({ style }: HeroCardProps) {
   const word = useTypewriter(WORDS);
 
@@ -78,7 +98,7 @@ export default function HeroCard({ style }: HeroCardProps) {
         <StarIcon />
       </div>
       <div className="flex-1" />
-      <h1 className="text-2xl sm:text-3xl xl:text-5xl font-semibold leading-tight text-text">
+      <h1 className="text-2xl sm:text-3xl lg:text-5xl font-semibold leading-tight text-text">
         Frontend &
         <br />
         Mobile{" "}
@@ -92,15 +112,40 @@ export default function HeroCard({ style }: HeroCardProps) {
         <br />
         and AI Enthusiast
       </h1>
-      <p className="mt-4 text-text text-base translate-x-0 group-hover:translate-x-2 transition-transform duration-300">
-        Next.js, React & Flutter
-      </p>
+
+      <div className="mt-6 w-full overflow-hidden">
+        <div className="flex w-max animate-scroll">
+          {/* First Skill Set */}
+          <div className="flex gap-8 pr-8"> 
+            {skills.map((item, i) => (
+              <SkillItem key={`a-${i}`} item={item} />
+            ))}
+          </div>
+
+          {/* Second Skill Set (Identical) */}
+          <div className="flex gap-8 pr-8">
+            {skills.map((item, i) => (
+              <SkillItem key={`b-${i}`} item={item} />
+            ))}
+          </div>
+          
+        </div>
+      </div>
 
       <style>
         {`
           @keyframes blink {
             0%, 100% { opacity: 1; }
-            50%       { opacity: 0; }
+            50% { opacity: 0; }
+          }
+
+          @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+
+          .animate-scroll {
+            animation: scroll 25s linear infinite;
           }
         `}
       </style>
