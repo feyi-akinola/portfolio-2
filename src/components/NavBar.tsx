@@ -19,7 +19,7 @@ export default function NavBar() {
             target="_blank"
             download
             className="text-white text-xs font-medium tracking-widest
-              opacity-75 button-text-light_ no-underline"
+              opacity-75 button-text_ no-underline"
           >
             {name}
           </a>
