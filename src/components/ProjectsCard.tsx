@@ -45,25 +45,32 @@ function ProjectRow({ project }: ProjectRowProps) {
 
   const target = useRef({ x: 0, y: 0 });
   const current = useRef({ x: 0, y: 0 });
-
   const raf = useRef<number | null>(null);
 
   // Animation loop
   useEffect(() => {
     const animate = () => {
       const card = hoverCardRef.current;
-      if (!card) return;
-
+      const row = rowRef.current;
+      if (!card || !row) return;
+    
       const speed = 0.12;
-
       current.current.x += (target.current.x - current.current.x) * speed;
       current.current.y += (target.current.y - current.current.y) * speed;
-
-      const w = card.offsetWidth;
-
-      card.style.transform =
-        `translate(${current.current.x - w}px, ${current.current.y - card.offsetHeight}px)`;
-
+    
+      const cardW = card.offsetWidth;
+      const rowRect = row.getBoundingClientRect();
+    
+      // Horizontal Clamping
+      let leftPos = current.current.x - cardW;
+      if (rowRect.left + leftPos < 0) {
+        leftPos = -rowRect.left;
+      }
+      
+      const topPos = current.current.y - card.offsetHeight - 10;
+    
+      card.style.transform = `translate(${leftPos}px, ${topPos}px)`;
+    
       raf.current = requestAnimationFrame(animate);
     };
 
@@ -77,8 +84,7 @@ function ProjectRow({ project }: ProjectRowProps) {
   // Mouse move updates target
   useEffect(() => {
     const row = rowRef.current;
-    const card = hoverCardRef.current;
-    if (!row || !card) return;
+    if (!row) return;
   
     const onMove = (e: MouseEvent) => {
       const rect = row.getBoundingClientRect();
