@@ -135,7 +135,7 @@ type ProjectsCardProps = {
 
 const ProjectSection = ({ title, projects } : { title: string, projects: Project[] }) => {
   return (
-    <div className="flex flex-col gap-8 items-center justify-center">
+    <div className="flex flex-col gap-8 items-center justify-center w-full">
       <h3 className="text-text font-semibold text-xl text-center uppercase">
         {title}
       </h3>
@@ -167,8 +167,8 @@ export default function ProjectsCard({ style }: ProjectsCardProps) {
           Projects
         </h3>
         
-        <div className="flex flex-col sm:flex-row lg:flex-col h-full justify-around gap-8
-          lg:gap-0 py-6"
+        <div className="flex flex-col sm:flex-row lg:flex-col h-full justify-around
+          sm:justify-evenly lg:justify-around w-full gap-8 lg:gap-0 py-6"
         >
           <ProjectSection
             title="Applications"
