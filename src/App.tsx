@@ -9,7 +9,7 @@ import TiltCard from "./components/TiltCard";
 export default function Portfolio() {
   return (
     <div className="bg-black min-h-screen flex items-center">
-      <div className="max-w-[1380px] mx-auto p-4 flex flex-col gap-4">
+      <div className="max-w-[1380px] mx-auto p-4 flex flex-col gap-4 overflow-hidden">
         <NavBar />
 
         {/* ── Mobile: single column stack ── */}
@@ -25,30 +25,30 @@ export default function Portfolio() {
         <div
           className="hidden sm:grid lg:hidden gap-2 flex-1"
           style={{
-            gridTemplateColumns: "1fr 1fr",
-            gridTemplateRows: "auto auto auto",
+            gridTemplateColumns: "1fr 0.15fr 1fr",
+            gridTemplateRows: "0.8fr 1fr 1fr",
           }}
         >
           {/* Row 1 */}
-          <TiltCard style={{ gridColumn: "1 / 2", gridRow: 1 }}>
+          <TiltCard style={{ gridColumn: "1 / 3", gridRow: 1 }}>
             <HeroCard />
           </TiltCard>
+
+          <TiltCard style={{ gridColumn: 3, gridRow: 1 }}>
+            <ContactCard />
+          </TiltCard>
           
-          <TiltCard style={{ gridColumn: 1, gridRow: 2, backgroundImage: "" }}>
+          {/* Row 2 */}
+          <TiltCard style={{ gridColumn: "2 / 4", gridRow: 2, backgroundImage: "" }}>
             <BioCard />
           </TiltCard>
 
-          {/* Row 2 */}
-          <TiltCard style={{ gridColumn: "2 / 3", gridRow: 1 }}>
-            <ContactCard />
-          </TiltCard>
-
-          <TiltCard style={{ gridColumn: 2, gridRow: 2, backgroundImage: "" }}>
+          <TiltCard style={{ gridColumn: 1, gridRow: 2, backgroundImage: "" }}>
             <PhotoCard />
           </TiltCard>
 
           {/* Projects at bottom, spanning full width */}
-          <TiltCard style={{ gridColumn: "1 / 3", gridRow: 4 }} tiltLevel="medium">
+          <TiltCard style={{ gridColumn: "1 / 4", gridRow: 3 }} tiltLevel="medium">
             <ProjectsCard />
           </TiltCard>
         </div>

@@ -59,6 +59,7 @@ export default function TiltCard(
         setIsHovered(false);
       }}
       onMouseEnter={() => setIsHovered(true)}
+      className="min-w-0"
     >
       {children}
     </div>
