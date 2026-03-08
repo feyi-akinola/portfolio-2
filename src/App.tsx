@@ -1,4 +1,3 @@
-import { useState } from "react";
 import NavBar from "./components/NavBar";
 import HeroCard from "./components/HeroCard";
 import PhotoCard from "./components/PhotoCard";
@@ -7,25 +6,10 @@ import BioCard from "./components/BioCard";
 import ContactCard from "./components/ContactCard";
 import TiltCard from "./components/TiltCard";
 
-type HoverCard = "hero" | "photo" | "projects" | "bio" | "contact" | null;
-
-function getGridColumns(hovered: HoverCard) {
-  switch (hovered) {
-    case "hero":     return "1fr 0.15fr 0.6fr 0.75fr";
-    case "photo":    return "0.9fr 0.15fr 0.7fr 0.75fr";
-    case "projects": return "0.9fr 0.15fr 0.6fr 0.82fr";
-    case "bio":      return "1.1fr 0.15fr 0.6fr 0.75fr";
-    case "contact":  return "0.9fr 0.15fr 0.7fr 0.75fr";
-    default:         return "1fr 0.15fr 0.62fr 0.75fr";
-  }
-}
-
 export default function Portfolio() {
-  const [hovered, setHovered] = useState<HoverCard>(null);
-
   return (
     <div className="bg-black min-h-screen flex items-center">
-      <div className="max-w-[1400px] max-h-[840px] mx-auto p-4 flex flex-col gap-4">
+      <div className="max-w-[1380px] mx-auto p-4 flex flex-col gap-4">
         <NavBar />
 
         {/* ── Mobile: single column stack ── */}
@@ -71,12 +55,10 @@ export default function Portfolio() {
 
         {/* ── Desktop: original dynamic hover grid ── */}
         <div
-          className="hidden lg:grid gap-2  flex-1"
-          onMouseLeave={() => setHovered(null)}
+          className="hidden lg:grid gap-2 flex-1"
           style={{
-            gridTemplateColumns: getGridColumns(hovered),
-            gridTemplateRows: "5fr 3fr",
-            transition: "grid-template-columns 260ms cubic-bezier(.2,.8,.2,1)",
+            gridTemplateColumns: "1fr 0.15fr 0.72fr 0.7fr",
+            gridTemplateRows: "6.3fr 3.7fr",
           }}
         >
           <TiltCard style={{ gridColumn: "1 / 3", gridRow: 1 }}>

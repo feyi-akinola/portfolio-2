@@ -171,12 +171,12 @@ export default function ProjectsCard({ style }: ProjectsCardProps) {
           lg:gap-0 py-6"
         >
           <ProjectSection
-            title="Application"
+            title="Applications"
             projects={PROJECTS.filter((project) => project.type == "Application")}
           />
           
           <ProjectSection
-            title="Design"
+            title="Designs"
             projects={PROJECTS.filter((project) => project.type == "Design")}
           />
         </div>
