@@ -23,7 +23,7 @@ const SOCIAL_LINKS: Link[] = [
 const PROJECTS: Project[] = [
   { name: "Tech Store Demo", type: "Application", url: "https://github.com/feyi-akinola/tech-store-demo#readme" },
   { name: "Mantar News", type: "Application", url: "https://github.com/feyi-akinola/mantar-news#readme" },
-  { name: "Dessert Scape", type: "Design", url: "https://www.figma.com/design/hvh6D9SNud2Qe1iu7OSwij/Mocha-Social?node-id=0-1&t=5aCmrwOdH7zZEFS9-1" },
+  { name: "Dessert Scape", type: "Design", url: "https://www.figma.com/design/bFWmvO0AJvQlQ6fO1ICAJ0/Dessert-Scape?node-id=0-1&t=ewKFOyeesrdrLicg-1" },
   { name: "Mocha Social", type: "Design", url: "https://www.figma.com/design/hvh6D9SNud2Qe1iu7OSwij/Mocha-Social?node-id=0-1&t=5aCmrwOdH7zZEFS9-1" },
 ];
 
