@@ -113,7 +113,7 @@ export default function HeroCard({ style }: HeroCardProps) {
         and AI Enthusiast
       </h1>
 
-      <div className="mt-6 w-full overflow-hidden">
+      <div className="mt-8 w-full overflow-hidden">
         <div className="flex w-max animate-scroll">
           {/* First Skill Set */}
           <div className="flex gap-8 pr-8"> 
