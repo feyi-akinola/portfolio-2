@@ -57,7 +57,7 @@ export default function ContactCard({ style }: ContactCardProps) {
   return (
     <section
       ref={cardRef}
-      className="relative w-full h-full bg-stone-200 rounded-2xl px-9 py-8
+      className="relative w-full h-full bg-stone-200 rounded-2xl px-6 py-8
         flex flex-col justify-between cursor-pointer group"
       style={style}
       onClick={async () => {
@@ -67,11 +67,9 @@ export default function ContactCard({ style }: ContactCardProps) {
       onMouseEnter={() => setIsToolTipShowing(true)}
       onMouseLeave={() => setIsToolTipShowing(false)}
     >
-      <div className="flex justify-between items-start text-xl font-medium
-        text-text">
+      <p className="text-xl font-medium text-text">
         Have any questions?
-        <span className="text-2xl text-text inline-block">↗</span>
-      </div>
+      </p>
 
       <div className="mt-12 lg:mt-auto text-4xl font-regular text-text">
         Contact me
